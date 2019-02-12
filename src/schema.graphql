@@ -1,0 +1,34 @@
+type Group {
+  id: Int!
+  users: [User]
+  notes: [Note]
+}
+
+type User {
+  id: Int!
+  name: String
+}
+
+type Note {
+  id: String!
+  userId: Int
+  groupId: Int
+  data: String
+}
+
+type Query {
+  getGroups: [Group]
+  getGroup(id: Int!): Group
+  getUsers: [User]
+  getUser(id: Int!): User
+  getNotes: [Note]
+  getNote(id: Int!): Note
+}
+
+type Mutation {
+  addNote (
+    userId: Int!
+    groupId: Int!
+    data: String
+  ): Note
+}
